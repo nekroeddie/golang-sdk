@@ -5,14 +5,14 @@ This is the official Golang SDK for MercadoLibre's Platform.
 ## How do I install it?
 
 You can download the latest build at:
-    https://github.com/mercadolibre/go-sdk/archive/master.zip
+    https://github.com/mercadolibre/golang-sdk/archive/master.zip
 
 How do I install it using go:
 
 Just run the following command within your $GOPATH
 
 ```bash
-go get github.com/mercadolibre/sdk
+go get github.com/mercadolibre/golang-sdk
 ```
 
 And that's it!
@@ -113,12 +113,12 @@ client, err := sdk.Meli(CLIENT_ID, CLIENT_CODE, CLIENT_SECRET, "https://www.exam
 
 body :=	"{\"title\":\"Item de test - No Ofertar\",\"category_id\":\"MLA1912\",\"price\":10,\"currency_id\":\"ARS\",\"available_quantity\":1,\"buying_mode\":\"buy_it_now\",\"listing_type_id\":\"bronze\",\"condition\":\"new\",\"description\": \"Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box\",\"video_id\": \"YOUTUBE_ID_HERE\",\"warranty\": \"12 months by Ray Ban\",\"pictures\":[{\"source\":\"http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg\"},{\"source\":\"http://en.wikipedia.org/wiki/File:Teashades.gif\"}]}"
 
-resp, err = client.Post("/items", body)
+resp, err := client.Post("/items", body)
 
 if err != nil {
     log.Printf("Error %s\n", err.Error())
 }
-userInfo, _= ioutil.ReadAll(resp.Body)
+userInfo, _ := ioutil.ReadAll(resp.Body)
 fmt.Printf("response:%s\n", userInfo)
 
 ```
@@ -128,12 +128,12 @@ fmt.Printf("response:%s\n", userInfo)
 client, err := sdk.Meli(CLIENT_ID, CLIENT_CODE, CLIENT_SECRET, "https://www.example.com")
 change := "{\"available_quantity\": 6}"
 
-resp, err = client.Put("/items/" + item.Id, &change)
+resp, err := client.Put("/items/" + item.Id, &change)
 
 if err != nil {
     log.Printf("Error %s\n", err.Error())
 }
-userInfo, _= ioutil.ReadAll(resp.Body)
+userInfo, _ := ioutil.ReadAll(resp.Body)
 fmt.Printf("response:%s\n", userInfo)
 ```
 ## Making DELETE calls
